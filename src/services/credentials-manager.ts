@@ -38,6 +38,13 @@ class CredentialsManager {
   private async loadStore(): Promise<void> {
     try {
       const data = await fs.readFile(CREDENTIALS_FILE, 'utf-8');
+      // An empty file (e.g. a touch or an interrupted write) is the same as no
+      // store — re-initialize instead of crash-looping on JSON.parse.
+      if (data.trim() === '') {
+        logger.info('Credentials store is empty, creating new one');
+        await this.saveStore();
+        return;
+      }
       this.store = JSON.parse(data);
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
