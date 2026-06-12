@@ -82,12 +82,30 @@ export class DockerManager {
     if (!this.docker) return;
     const containers = await this.docker.listContainers({ all: true });
     for (const container of containers) {
-      if (container.Labels?.['com.pocketbase.managed'] === 'true') {
-        const ports = container.Ports || [];
-        for (const p of ports) {
-          if (p.PublicPort) {
-            this.usedPorts.add(p.PublicPort);
+      // Count host ports of ALL containers, not just managed ones — unmanaged
+      // containers (pre-manager tenants, pipeline-api, etc.) occupy host ports
+      // too, and allocating one of theirs fails the docker start with
+      // "port is already allocated".
+      for (const p of container.Ports || []) {
+        if (p.PublicPort) {
+          this.usedPorts.add(p.PublicPort);
+        }
+      }
+      // listContainers omits port bindings for non-running containers; read
+      // them from HostConfig so stopped tenants keep their port reserved.
+      if (container.State !== 'running') {
+        try {
+          const info = await this.docker.getContainer(container.Id).inspect();
+          for (const bindings of Object.values(info.HostConfig?.PortBindings ?? {})) {
+            for (const b of (bindings as Array<{ HostPort?: string }>) ?? []) {
+              const port = parseInt(b?.HostPort ?? '', 10);
+              if (!Number.isNaN(port)) {
+                this.usedPorts.add(port);
+              }
+            }
           }
+        } catch {
+          // container removed mid-scan — nothing to reserve
         }
       }
     }

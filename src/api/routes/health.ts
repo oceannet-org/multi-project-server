@@ -12,10 +12,10 @@ const router = Router();
 router.get('/', async (req: Request, res: Response) => {
   try {
     const stats = await projectManager.getStats();
-    let containers = [];
+    let containers: Awaited<ReturnType<typeof dockerManager.listManagedContainers>> = [];
     try {
       containers = await dockerManager.listManagedContainers();
-    } catch (error) {
+    } catch {
       // Docker not available, use empty array
       containers = [];
     }
