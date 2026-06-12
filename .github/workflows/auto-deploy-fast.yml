@@ -1,13 +1,8 @@
 name: Fast Deploy (No Rebuild)
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:  # Skip if only these files changed
-      - 'docs/**'
-      - '*.md'
-      - '.gitignore'
+  # Push auto-trigger removed: this force-recreated all containers on the live
+  # EC2 (incl. tenant databases) on every push to main. Now MANUAL only.
   workflow_dispatch:
 
 env:

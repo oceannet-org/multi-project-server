@@ -46,3 +46,7 @@ temp/
 .env.bak
 .env.backup.*
 .env.remote-active
+
+# never track the manager API key
+terraform/.api_key.txt
+.api_key.txt

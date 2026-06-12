@@ -1,14 +1,10 @@
 name: Terraform
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'terraform/**'
-  pull_request:
-    branches: [main]
-    paths:
-      - 'terraform/**'
+  # Auto-triggers removed: this workflow ran `terraform apply -auto-approve` on
+  # every push to main touching terraform/** — it could reshape live DB infra
+  # unattended. Terraform is now MANUAL only (run from a trusted machine or via
+  # an explicit workflow_dispatch).
   workflow_dispatch:
     inputs:
       action:

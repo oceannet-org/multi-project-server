@@ -193,7 +193,7 @@ curl https://manager.db.oceannet.dev/api/health
 ```bash
 curl -X POST https://manager.db.oceannet.dev/api/projects \
   -H "Content-Type: application/json" \
-  -H "x-api-key: 6362ddb984e89b2049877f7e8c3e8c483348f0c10b9890f29de83018d37bbded" \
+  -H "x-api-key: <MANAGER_API_KEY>" \
   -d '{
     "name": "Test Client",
     "clientName": "Acme Corp"

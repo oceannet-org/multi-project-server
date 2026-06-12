@@ -1,0 +1,7 @@
+# Infrastructure layer (runs the live PocketBase databases). Panos owns
+# everything; intern has no access. Sensitive paths called out explicitly.
+* @Panosstylianou
+/.github/workflows/            @Panosstylianou
+/terraform/                    @Panosstylianou
+/docker-compose.yml            @Panosstylianou
+/docker-compose.production.yml @Panosstylianou
