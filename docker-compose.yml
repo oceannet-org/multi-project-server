@@ -54,6 +54,28 @@ services:
       - "traefik.http.routers.pipeline-api.entrypoints=web"
       - "traefik.http.services.pipeline-api.loadbalancer.server.port=8010"
 
+  # Invest platform — API + autonomous trading engine (multi-tenant-api/packages/invest-api)
+  invest-api:
+    image: ${ECR_REGISTRY:-323603432190.dkr.ecr.eu-west-2.amazonaws.com}/invest-api:latest
+    container_name: invest-api
+    restart: unless-stopped
+    # Hard cap: this box also runs the PocketBase tenants — an engine leak must
+    # OOM-kill the engine (restart-safe by design), never starve the databases.
+    mem_limit: 384m
+    ports:
+      - "8020:8020"
+    env_file:
+      - /opt/invest/secrets/invest.env
+    networks:
+      - pocketbase-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.invest-api.rule=Host(`invest-api.db.oceannet.dev`)"
+      - "traefik.http.routers.invest-api.entrypoints=websecure"
+      - "traefik.http.routers.invest-api.tls=true"
+      - "traefik.http.routers.invest-api.tls.certresolver=letsencrypt"
+      - "traefik.http.services.invest-api.loadbalancer.server.port=8020"
+
   # Traefik reverse proxy
   traefik:
     image: traefik:v2.11
