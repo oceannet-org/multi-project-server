@@ -19,6 +19,6 @@ route53_zone_id = ""  # Optional: your Route53 zone ID
 # Application Configuration
 api_key        = "your-secure-api-key-here"  # Generate a strong random key
 admin_email    = "hello@oceannet.dev"        # Admin email for all PocketBase databases
-admin_password = "BetterMapRules8"            # Admin password for all PocketBase databases
+admin_password = "CHANGE_ME"            # Admin password for all PocketBase databases
 acme_email     = "ssl@youragency.com"
 

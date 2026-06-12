@@ -7,7 +7,7 @@
  *   tsx scripts/add-existing-database.ts <name> <slug> <domain> <container-name> <email> <password>
  * 
  * Example:
- *   tsx scripts/add-existing-database.ts "Oceannet" "api" "api.db.oceannet.dev" "pocketbase-api" "hello@oceannet.dev" "BetterMapRules8"
+ *   tsx scripts/add-existing-database.ts "Oceannet" "api" "api.db.oceannet.dev" "pocketbase-api" "hello@oceannet.dev" "CHANGE_ME"
  */
 
 import { nanoid } from 'nanoid';
@@ -123,7 +123,7 @@ async function main() {
   if (args.length < 6) {
     console.error(chalk.red('Usage: tsx scripts/add-existing-database.ts <name> <slug> <domain> <container-name> <email> <password>'));
     console.error(chalk.gray('\nExample:'));
-    console.error(chalk.gray('  tsx scripts/add-existing-database.ts "Oceannet" "api" "api.db.oceannet.dev" "pocketbase-api" "hello@oceannet.dev" "BetterMapRules8"'));
+    console.error(chalk.gray('  tsx scripts/add-existing-database.ts "Oceannet" "api" "api.db.oceannet.dev" "pocketbase-api" "hello@oceannet.dev" "CHANGE_ME"'));
     process.exit(1);
   }
 

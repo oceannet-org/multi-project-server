@@ -7,7 +7,7 @@
  *   tsx scripts/migrate-oceannet-collections.ts <pocketbase-url> <admin-email> <admin-password>
  * 
  * Example:
- *   tsx scripts/migrate-oceannet-collections.ts https://api.db.oceannet.dev panos@oceannet.cloud BetterMapRules8
+ *   tsx scripts/migrate-oceannet-collections.ts https://api.db.oceannet.dev panos@oceannet.cloud CHANGE_ME
  */
 
 import axios from 'axios';
@@ -492,7 +492,7 @@ async function main() {
   if (args.length < 3) {
     console.error(chalk.red('Usage: tsx scripts/migrate-oceannet-collections.ts <pocketbase-url> <admin-email> <admin-password>'));
     console.error(chalk.gray('\nExample:'));
-    console.error(chalk.gray('  tsx scripts/migrate-oceannet-collections.ts https://api.db.oceannet.dev panos@oceannet.cloud BetterMapRules8'));
+    console.error(chalk.gray('  tsx scripts/migrate-oceannet-collections.ts https://api.db.oceannet.dev panos@oceannet.cloud CHANGE_ME'));
     process.exit(1);
   }
 

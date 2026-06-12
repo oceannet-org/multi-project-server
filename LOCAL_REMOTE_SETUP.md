@@ -56,7 +56,7 @@ This connects your local Docker client directly to the remote Docker daemon via 
    # Security - UNIFIED CREDENTIALS
    API_KEY=dev-api-key
    ADMIN_EMAIL=hello@oceannet.dev
-   ADMIN_PASSWORD=BetterMapRules8
+   ADMIN_PASSWORD=CHANGE_ME
    JWT_SECRET=your-production-jwt-secret-here
 
    # AWS
@@ -99,7 +99,7 @@ This connects your local Docker client directly to the remote Docker daemon via 
 
 6. **Login locally:**
    - Open `http://localhost:3002/dashboard`
-   - Login with: `hello@oceannet.dev` / `BetterMapRules8`
+   - Login with: `hello@oceannet.dev` / `CHANGE_ME`
    - You'll see your live databases!
 
 ---
@@ -183,7 +183,7 @@ PORT=3002 npm run dev
 # 3. Test login
 curl -X POST http://localhost:3002/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"hello@oceannet.dev","password":"BetterMapRules8"}'
+  -d '{"email":"hello@oceannet.dev","password":"CHANGE_ME"}'
 
 # 4. List databases
 TOKEN="<your-jwt-token>"
@@ -231,7 +231,7 @@ chmod 400 ~/.ssh/bettermap-key.pem
 ```
 
 ### "Login failed"
-- Make sure you're using production credentials: `hello@oceannet.dev` / `BetterMapRules8`
+- Make sure you're using production credentials: `hello@oceannet.dev` / `CHANGE_ME`
 - Delete local `data/admin-store.json` and restart server to recreate with .env credentials
 
 ---

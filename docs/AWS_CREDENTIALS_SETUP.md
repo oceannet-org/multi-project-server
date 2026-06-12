@@ -13,7 +13,7 @@ If you're deploying a new instance with Terraform:
 1. **Update `terraform/terraform.tfvars`** with your credentials:
    ```hcl
    admin_email    = "hello@oceannet.dev"
-   admin_password = "BetterMapRules8"
+   admin_password = "CHANGE_ME"
    ```
 
 2. **Apply Terraform**:
@@ -40,7 +40,7 @@ aws ssm send-command \
   --parameters 'commands=[
     "cd /opt/pocketbase-manager",
     "echo \"ADMIN_EMAIL=hello@oceannet.dev\" >> .env",
-    "echo \"ADMIN_PASSWORD=BetterMapRules8\" >> .env",
+    "echo \"ADMIN_PASSWORD=CHANGE_ME\" >> .env",
     "docker compose -f docker-compose.prod.yml down",
     "docker compose -f docker-compose.prod.yml up -d"
   ]'
@@ -54,7 +54,7 @@ ssh -i ~/.ssh/bettermap-key.pem ec2-user@13.135.181.201
 # Edit the .env file
 cd /opt/pocketbase-manager
 echo "ADMIN_EMAIL=hello@oceannet.dev" >> .env
-echo "ADMIN_PASSWORD=BetterMapRules8" >> .env
+echo "ADMIN_PASSWORD=CHANGE_ME" >> .env
 
 # Restart the container
 docker compose -f docker-compose.prod.yml down
@@ -70,7 +70,7 @@ services:
   manager:
     environment:
       - ADMIN_EMAIL=hello@oceannet.dev
-      - ADMIN_PASSWORD=BetterMapRules8
+      - ADMIN_PASSWORD=CHANGE_ME
 ```
 
 Then restart:
@@ -88,7 +88,7 @@ docker exec pocketbase-manager env | grep ADMIN
 
 # Should show:
 # ADMIN_EMAIL=hello@oceannet.dev
-# ADMIN_PASSWORD=BetterMapRules8
+# ADMIN_PASSWORD=CHANGE_ME
 ```
 
 ## Testing

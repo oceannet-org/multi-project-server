@@ -779,12 +779,12 @@
                 <div class="bg-surface-900 rounded-lg p-3">
                   <div class="flex items-center justify-between mb-1">
                     <span class="text-xs text-gray-400">Password</span>
-                    <button @click="copyToClipboard('BetterMapRules8', 'Password')" class="text-brand-400 hover:text-brand-300 text-xs">
+                    <button @click="copyToClipboard('CHANGE_ME', 'Password')" class="text-brand-400 hover:text-brand-300 text-xs">
                       Copy
                     </button>
                   </div>
                   <div class="flex items-center gap-2">
-                    <code class="text-sm text-white font-mono flex-1" x-text="showPassword ? 'BetterMapRules8' : '••••••••••••••••'"></code>
+                    <code class="text-sm text-white font-mono flex-1" x-text="showPassword ? 'CHANGE_ME' : '••••••••••••••••'"></code>
                     <button @click="showPassword = !showPassword" class="text-gray-400 hover:text-white">
                       <svg x-show="!showPassword" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>

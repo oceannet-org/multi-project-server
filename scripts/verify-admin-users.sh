@@ -58,7 +58,7 @@ check_database() {
     echo "$ADMIN_LIST" || echo "  (could not list admins)"
     echo ""
     echo "💡 To create the admin user, run:"
-    echo "   ./scripts/fix-admin-user-remote.sh $DOMAIN $EMAIL BetterMapRules8"
+    echo "   ./scripts/fix-admin-user-remote.sh $DOMAIN $EMAIL CHANGE_ME"
   fi
   
   echo ""
