@@ -68,7 +68,7 @@ COMMAND_ID=$(aws ssm send-command \
     "  \"projectSlug\": \"api\",",
     "  \"domain\": \"api.db.oceannet.dev\",",
     "  \"adminEmail\": \"hello@oceannet.dev\",",
-    "  \"adminPassword\": \"BetterMapRules8\",",
+    "  \"adminPassword\": \"CHANGE_ME\",",
     "  \"createdAt\": \"2026-01-23T10:00:00.000Z\",",
     "  \"updatedAt\": \"$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)\"",
     "}",

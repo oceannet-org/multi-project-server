@@ -6,7 +6,7 @@ set -e
 
 INSTANCE_ID="${1:-i-0eeb2f36b052f1228}"
 ADMIN_EMAIL="${ADMIN_EMAIL:-hello@oceannet.dev}"
-ADMIN_PASSWORD="${ADMIN_PASSWORD:-BetterMapRules8}"
+ADMIN_PASSWORD="${ADMIN_PASSWORD:-CHANGE_ME}"
 
 echo "🔧 Updating admin credentials on AWS instance..."
 echo "   Instance ID: $INSTANCE_ID"

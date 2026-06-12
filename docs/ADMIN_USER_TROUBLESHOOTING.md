@@ -4,7 +4,7 @@
 
 The Oceannet database (`api.db.oceannet.dev`) is returning a 400 error when attempting to authenticate with:
 - Email: `hello@oceannet.dev`
-- Password: `BetterMapRules8`
+- Password: `CHANGE_ME`
 
 Error response:
 ```json
@@ -20,7 +20,7 @@ Error response:
 PocketBase containers mount the data directory at `/pb_data`. When running `superuser` commands, you **must** specify the `--dir /pb_data` flag:
 
 ```bash
-docker exec pocketbase-api /usr/local/bin/pocketbase --dir /pb_data superuser upsert hello@oceannet.dev BetterMapRules8
+docker exec pocketbase-api /usr/local/bin/pocketbase --dir /pb_data superuser upsert hello@oceannet.dev CHANGE_ME
 ```
 
 ## Possible Causes
@@ -49,13 +49,13 @@ docker exec pocketbase-api /usr/local/bin/pocketbase --dir /pb_data superuser li
 **Option A: Use the fix script (recommended)**
 ```bash
 # From your local machine
-./scripts/fix-admin-user-remote.sh api.db.oceannet.dev hello@oceannet.dev BetterMapRules8
+./scripts/fix-admin-user-remote.sh api.db.oceannet.dev hello@oceannet.dev CHANGE_ME
 ```
 
 **Option B: Manual SSH command**
 ```bash
 ssh -i ~/.ssh/bettermap-key.pem ec2-user@13.135.181.201 \
-  "docker exec pocketbase-api /usr/local/bin/pocketbase --dir /pb_data superuser upsert hello@oceannet.dev BetterMapRules8"
+  "docker exec pocketbase-api /usr/local/bin/pocketbase --dir /pb_data superuser upsert hello@oceannet.dev CHANGE_ME"
 ```
 
 ### 3. Verify Container is Running
@@ -97,17 +97,17 @@ After creating the admin user, test authentication:
 # Try with identity field
 curl -X POST "https://api.db.oceannet.dev/api/collections/_superusers/auth-with-password" \
   -H "Content-Type: application/json" \
-  -d '{"identity":"hello@oceannet.dev","password":"BetterMapRules8"}'
+  -d '{"identity":"hello@oceannet.dev","password":"CHANGE_ME"}'
 
 # Try with email field (some PocketBase versions)
 curl -X POST "https://api.db.oceannet.dev/api/collections/_superusers/auth-with-password" \
   -H "Content-Type: application/json" \
-  -d '{"email":"hello@oceannet.dev","password":"BetterMapRules8"}'
+  -d '{"email":"hello@oceannet.dev","password":"CHANGE_ME"}'
 
 # Try the /api/admins endpoint
 curl -X POST "https://api.db.oceannet.dev/api/admins/auth-with-password" \
   -H "Content-Type: application/json" \
-  -d '{"identity":"hello@oceannet.dev","password":"BetterMapRules8"}'
+  -d '{"identity":"hello@oceannet.dev","password":"CHANGE_ME"}'
 ```
 
 Expected success response:
@@ -126,13 +126,13 @@ Expected success response:
 
 - **Oceannet Database** (`api.db.oceannet.dev`):
   - Email: `hello@oceannet.dev`
-  - Password: `BetterMapRules8`
+  - Password: `CHANGE_ME`
   - Container: `pocketbase-api`
   - Data Directory: `/pb_data`
 
 - **ChordsMaster Database** (`chords-master.db.oceannet.dev`):
   - Email: `hello@oceannet.dev`
-  - Password: `BetterMapRules8`
+  - Password: `CHANGE_ME`
   - Container: `pocketbase-chords-master`
   - Data Directory: `/pb_data`
 

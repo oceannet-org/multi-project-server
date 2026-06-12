@@ -51,7 +51,7 @@ async function createAdminUser(
       if (error.response?.status === 400) {
         console.error(chalk.red('✗ Authentication failed: Invalid credentials'));
         console.error(chalk.yellow('\nIf no admin exists yet, use the SSH method instead:'));
-        console.error(chalk.gray('  ./scripts/fix-admin-user-remote.sh api.db.oceannet.dev hello@oceannet.dev BetterMapRules8'));
+        console.error(chalk.gray('  ./scripts/fix-admin-user-remote.sh api.db.oceannet.dev hello@oceannet.dev CHANGE_ME'));
       } else {
         console.error(chalk.red(`✗ Authentication failed: ${error.response?.data?.message || error.message}`));
       }
@@ -159,9 +159,9 @@ async function main() {
   if (args.length < 5) {
     console.error(chalk.red('Usage: tsx scripts/fix-admin-user-api.ts <pocketbase-url> <existing-admin-email> <existing-admin-password> <new-admin-email> <new-admin-password>'));
     console.error(chalk.gray('\nExample:'));
-    console.error(chalk.gray('  tsx scripts/fix-admin-user-api.ts https://api.db.oceannet.dev admin@example.com oldpass hello@oceannet.dev BetterMapRules8'));
+    console.error(chalk.gray('  tsx scripts/fix-admin-user-api.ts https://api.db.oceannet.dev admin@example.com oldpass hello@oceannet.dev CHANGE_ME'));
     console.error(chalk.gray('\nNote: This requires an existing admin. If no admin exists, use:'));
-    console.error(chalk.gray('  ./scripts/fix-admin-user-remote.sh api.db.oceannet.dev hello@oceannet.dev BetterMapRules8'));
+    console.error(chalk.gray('  ./scripts/fix-admin-user-remote.sh api.db.oceannet.dev hello@oceannet.dev CHANGE_ME'));
     process.exit(1);
   }
 

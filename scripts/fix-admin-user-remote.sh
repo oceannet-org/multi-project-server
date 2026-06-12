@@ -6,7 +6,7 @@ set -e
 
 DOMAIN="${1:-api.db.oceannet.dev}"
 EMAIL="${2:-hello@oceannet.dev}"
-PASSWORD="${3:-BetterMapRules8}"
+PASSWORD="${3:-CHANGE_ME}"
 CONTAINER="${4:-}"
 
 # AWS connection details

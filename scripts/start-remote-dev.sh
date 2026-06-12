@@ -104,7 +104,7 @@ USE_HTTPS=true
 # Production credentials
 API_KEY=dev-api-key
 ADMIN_EMAIL=hello@oceannet.dev
-ADMIN_PASSWORD=BetterMapRules8
+ADMIN_PASSWORD=CHANGE_ME
 JWT_SECRET=supersecretjwtkey
 
 # AWS

@@ -128,7 +128,7 @@ USE_HTTPS=true
 # Security - PRODUCTION CREDENTIALS
 API_KEY=dev-api-key
 ADMIN_EMAIL=hello@oceannet.dev
-ADMIN_PASSWORD=BetterMapRules8
+ADMIN_PASSWORD=CHANGE_ME
 JWT_SECRET=supersecretjwtkey
 
 # AWS
@@ -192,7 +192,7 @@ echo "🌐 Then open: http://localhost:3002/dashboard"
 echo ""
 echo "🔑 Login with:"
 echo "   Email: hello@oceannet.dev"
-echo "   Password: BetterMapRules8"
+echo "   Password: CHANGE_ME"
 echo ""
 echo "⚠️  IMPORTANT:"
 echo "   - You're now managing PRODUCTION databases"

@@ -40,3 +40,9 @@ tmp/
 temp/
 *.tmp
 
+
+# secret-bearing env backups (never track)
+.env
+.env.bak
+.env.backup.*
+.env.remote-active

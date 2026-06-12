@@ -170,7 +170,7 @@ Both APIs are on **AWS App Runner, eu-west-2**. Auto-deploy is **OFF** — all d
 - **Dockerfile:** `packages/oceannet-api/Dockerfile` (build context = repo root)
 - **CI/CD:** `.github/workflows/deploy-oceannet-api.yml` — triggers on changes to `packages/oceannet-api/**`, `packages/shared/**`
 - **Runtime env vars:** set in App Runner console (not in `.env`)
-- **PocketBase:** `POCKETBASE_URL=https://api.db.oceannet.dev`, admin `hello@oceannet.dev` / `BetterMapRules8`
+- **PocketBase:** `POCKETBASE_URL=https://api.db.oceannet.dev`, admin `hello@oceannet.dev` / `CHANGE_ME`
 
 **Manual redeploy:**
 ```bash
@@ -210,7 +210,7 @@ The `onRequest` token-refresh hook must use a fallback pattern that catches the 
 
 | Tenant | Subdomain | Container | Port | Admin login |
 |--------|-----------|-----------|------|-------------|
-| Oceannet | `api.db.oceannet.dev` | `pocketbase-api` | 8090 | `hello@oceannet.dev` / `BetterMapRules8` |
+| Oceannet | `api.db.oceannet.dev` | `pocketbase-api` | 8090 | `hello@oceannet.dev` / `CHANGE_ME` |
 | ChordsMaster | `chords-master.db.oceannet.dev` | `pocketbase-chords-master` | 8091 | same creds |
 
 ### Admin auth endpoint (PocketBase ≥0.22)
@@ -218,7 +218,7 @@ The `onRequest` token-refresh hook must use a fallback pattern that catches the 
 ```bash
 curl -s -X POST "https://api.db.oceannet.dev/api/collections/_superusers/auth-with-password" \
   -H "Content-Type: application/json" \
-  -d '{"identity":"hello@oceannet.dev","password":"BetterMapRules8"}'
+  -d '{"identity":"hello@oceannet.dev","password":"CHANGE_ME"}'
 ```
 
 The old `/api/admins/auth-with-password` path returns 404 on PocketBase ≥0.22. Always use `_superusers` collection.
